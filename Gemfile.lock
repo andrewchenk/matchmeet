@@ -240,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_follower!
   api-ai-ruby
+  bcrypt
   bootstrap-sass (~> 3.3.6)
   byebug
   capybara (~> 2.13)

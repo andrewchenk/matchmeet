@@ -1,4 +1,4 @@
-
+<div class= "container">
 <% if current_user.user_name == @group.author%>
     <div id = "delete-link" class = "link"> <%= link_to 'Delete Group', group_path(@group), method: :delete %></div>
 <% else %>
@@ -40,6 +40,4 @@
        <% end %>
       </div>
 
- 
-  
-
+ </div>
