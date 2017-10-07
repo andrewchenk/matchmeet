@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   devise_scope :user do
   	get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'groups#index'
 
+  root 'groups#index'
+  get '/map' => 'groups#map'
   resources :groups do
     resources :comments
   end

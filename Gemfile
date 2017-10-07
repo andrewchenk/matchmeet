@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'geocoder'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3.1'
+gem 'microsoft_computer_vision'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 
