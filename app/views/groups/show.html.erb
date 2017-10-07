@@ -1,0 +1,45 @@
+
+<% if current_user.user_name == @group.author%>
+    <div id = "delete-link" class = "link"> <%= link_to 'Delete Group', group_path(@group), method: :delete %></div>
+<% else %>
+    <% if current_user.following?(@group) %>
+            <div id = "unfollow-link" class = "link"><%= link_to 'Leave Group', unfollow_users_path(@group.id), method: :post %></div>
+        <% else %>
+            <div id = "follow-link" class = "link"><%= link_to 'Join Group', follow_users_path(@group.id), method: :post %></div>
+    <% end %>
+<% end %>
+
+<h1><%= @group.name %></h1>
+<h2>Created By <%= link_to @group.author, user_path(@group.author_id) %></h2>
+<h3>Number of Members: <%= @group.followers_count %></h3>
+<% @group.followers.each do |follower| %>
+	<div><%= link_to follower.user_name, user_path(follower.id) %></div>
+<% end %>
+
+<h2>Group Description:</h2>
+<p><%= @group.description %></p>
+
+    <% if @group.comments %>
+        <% @group.comments.each do |comment| %>
+        <div class="comment">
+            <h3>
+             <%= comment.user.user_name %>
+             </h3>
+             <h4>
+            <%= comment.content %>
+           </h4>
+           <% if comment.user == current_user %>
+            <%= link_to "Delete Comment", group_comment_path(@group, comment), method: :delete %>
+          <% end %>
+         </div>
+       <% end %>
+       <% end %>
+       <div class="comment-form">
+     <%= form_for [@group, @group.comments.new] do |f| %>
+         <%= f.text_field :content, placeholder: 'Add a comment...' %>
+       <% end %>
+      </div>
+
+ 
+  
+

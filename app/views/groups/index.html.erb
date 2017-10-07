@@ -1,0 +1,15 @@
+<h1>Groups Near You</h1>
+<div class="posts-wrapper row">
+  <% @groups.each do |group| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          <%= link_to group.name, group_path(group) %>
+        </div>
+      </div>
+      <p class="caption">
+        <%= group.category %>
+      </p>
+    </div>
+  <% end %>
+</div>
