@@ -59,6 +59,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.14.2)
@@ -242,6 +244,7 @@ DEPENDENCIES
   api-ai-ruby
   bcrypt
   bootstrap-sass (~> 3.3.6)
+  bootswatch-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
