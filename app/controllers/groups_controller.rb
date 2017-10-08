@@ -11,23 +11,31 @@ class GroupsController < ApplicationController
         @user_lon = request.location.longitude
 
         # compute best suggestion
-        # @users = User.all
-        # max = -1
-        # @maxG = nil
-        # for g in @groups
-        #     dot_sum = 0
-        #     for u in @users
-        #         g_score = g.scoresstr.split(',').map(&:to_i)
-        #         u_score = u.scoresstr.split(',').map(&:to_i)
-        #         dot_product = g_score.map.with_index{ |x, i| g_score[i]*u_score[i]}
-        #         dot_sum = dot_sum + dot_product.sum
-        #     end
-        #
-        #     if dot_sum > max
-        #         max = dot_sum
-        #         @maxG = g
-        #     end
-        # end
+        @users = User.all
+        max = -1
+        @maxG = nil
+        for g in @groups
+            if g.scoresstr.nil?
+                g.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(",")
+            end
+            dot_sum = 0
+            for u in @users
+                if u.scoresstr.nil?
+                    u.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(",")
+                end
+                g_score = g.scoresstr.split(',').map(&:to_i)
+                u_score = u.scoresstr.split(',').map(&:to_i)
+                dot_product = g_score.map.with_index{ |x, i| g_score[i]*u_score[i]}
+                dot_sum = dot_sum + dot_product.sum
+                u.save!
+            end
+
+            if dot_sum > max
+                max = dot_sum
+                @maxG = g
+            end
+            g.save!
+        end
     end
 
     def new

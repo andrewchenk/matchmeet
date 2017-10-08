@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def add_url
         @user = current_user
         if @user.scoresstr.nil?
-            @user.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(',')
+            @user.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(",")
         end
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
