@@ -14,6 +14,7 @@ class UserMailer < ApplicationMailer
         }
       }
     )
+    @user.welcomed = true
     mail(to: @user.email, subject: "Welcome to MatchMeet!")
   end
 

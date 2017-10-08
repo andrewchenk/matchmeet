@@ -2,7 +2,10 @@ class GroupsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        UserMailer.welcome_email(User.order(:id).last).deliver_now
+        if (User.order(:id).last.welcomed != true)
+          UserMailer.welcome_email(User.order(:id).last).deliver_now
+          # User.order(:id).last.welcomed = true
+        end
         @groups = Group.all
         @user_lat = request.location.latitude
         @user_lon = request.location.longitude
