@@ -6,8 +6,8 @@ import sys
 #### Update or verify the following values. ###
 ###############################################
 
-tags = ["ball", "beach", "bicycle", "bird", "boat", "coffee", "computer","dog", "drink",  "eating", "field", "flower", "flying", "food", "frisbee", "fruit", "game", "garden", "glass", "grass", "green", "gymnastics", "hill", "indoor", "kitchen", "kite", "laptop", "mountain", "ocean", "outdoor", "park", "phone", "player", "pool", "racket", "restaurant", "riding", "road", "room", "sitting", "skiing", "snow", "soccer", "sport", "swimming", "swinging", "table", "talking", "team", "tennis", "trail",  "video", "walking", "water", "wii"]
-tags = set(tags)
+tagsLst = ["ball", "beach", "bicycle", "bird", "boat", "coffee", "computer","dog", "drink",  "eating", "field", "flower", "flying", "food", "frisbee", "fruit", "game", "garden", "glass", "grass", "green", "gymnastics", "hill", "indoor", "kitchen", "kite", "laptop", "mountain", "ocean", "outdoor", "park", "phone", "player", "pool", "racket", "restaurant", "riding", "road", "room", "sitting", "skiing", "snow", "soccer", "sport", "swimming", "swinging", "table", "talking", "team", "tennis", "trail",  "video", "walking", "water", "wii"]
+tags = set(tagsLst)
 # Read images url from stdin
 # json_input = sys.stdin.readlines()
 
@@ -65,7 +65,7 @@ for img in urls:
     common_tags = analyzeImage(img)
     for common_tag in common_tags:
         counts[common_tag] += 1
-countsLst = [counts[tag] for tag in tags]
+countsLst = [counts[tag] for tag in tagsLst]
 maxCount = max(countsLst)
 scores = [c / maxCount * 10 for c in countsLst]
 print(scores)
