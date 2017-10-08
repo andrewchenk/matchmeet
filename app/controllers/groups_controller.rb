@@ -36,9 +36,19 @@ class GroupsController < ApplicationController
     end
 
     def map
-        @all_groups = Group.all
+        @groups = Group.all
         @userlat = request.location.latitude
         @userlon = request.location.longitude
+    end
+
+    def test
+        g = Group.new
+        g.name = ''
+        g.description = ''
+        g.scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        g.save!
+
+        @group = Group.all
     end
 
     def describe

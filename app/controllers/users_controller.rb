@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def add_url
         @user = current_user
         if @user.scores.nil?
-            @user.scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            @user.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(',')
         end
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
@@ -35,4 +35,14 @@ class UsersController < ApplicationController
 			current_user.stop_following(Group.find(params[:id]))
 			redirect_to group_path(params[:id])
 	end
+
+    def test
+        # create 5 users
+        u = User.new
+        u.user_name = 'aasddandrewa'
+        u.email = 'aandsdaadrew@berkeley.edu'
+        u.password = 'bdaaaaaaaaa'
+        u.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(",")
+        u.save
+    end
 end
