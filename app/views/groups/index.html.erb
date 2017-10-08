@@ -34,22 +34,24 @@ function createMap(pos) {
   map.precache(latlng, 50);
 
   // obtain events from ruby in JSON
-  var result = '[{"lat":37.8719, "long":-122.2585}, {"lat":37.8750, "long":-122.2600}]';
+  var result = '[{"lat":37.8719, "long":-122.2585}, {"lat":37.8750, "long":-122.2600}, {"lat":37.8730, "long":-122.2585}, {"lat":37.8725, "long":-122.2595}, {"lat":37.8732, "long":-122.2560}]';
   eventLst = JSON.parse(result);
+  var names = ["Naruto run", "Meme-writing session", "Studying for CS", "Pickup basketball", "Hacking @ Cal Hacks"];
+  var description = ["Come run with us!", "Memes make dreams", "Because 170 is hella hard", "Ball is life", "What is sleep anyway?"];
   for (var i = 0; i < eventLst.length; i++) {
       var e = eventLst[i];
       console.log(e);
       var lat = e.lat;
       var long = e.long;
       var marker = L.marker([lat, long], {
-          title: "Transamerica Pyramid",
+          title: names[i],
           opacity: 0.8
-      }).bindTooltip("Event name", {
+      }).bindTooltip(names[i], {
           permanent: true,
           direction: 'top',
           offset: L.point(0, -50),
           classname: "event_marker"
-      }).bindPopup("This is the Transamerica Pyramid")//.openPopup()
+      }).bindPopup(description[i])//.openPopup()
       .on('mouseover', function (e) {
           this.openPopup();
       })
