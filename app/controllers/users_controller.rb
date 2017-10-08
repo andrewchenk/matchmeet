@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     end
 
     def add_url
-        @user = User.find(params[:id])        
+        @user = current_user      
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
         else
