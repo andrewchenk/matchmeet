@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611174358) do
+ActiveRecord::Schema.define(version: 20171008013936) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20170611174358) do
     t.float "latitude"
     t.float "longitude"
     t.string "author"
-    t.text "description"
     t.integer "author_id"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170611174358) do
     t.datetime "updated_at", null: false
     t.string "user_name"
     t.text "bio"
+    t.string "Image_Urls"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_name"], name: "index_users_on_user_name", unique: true

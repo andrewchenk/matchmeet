@@ -27,5 +27,24 @@
 	<p>
 		<%= @user.bio %>
 	</p>
+
+	<% if current_user.id == @user.id%>
+			<h4>
+			<%= form_for :Image_Urls do |f| %>
+				     <%= f.text_field :url %>
+					 <%= f.submit %>
+			<% end %>
+			</h4>
+		<h3>
+			Your Photo URLS:
+		</h3>
+			
+			<% @user.Image_Urls do |url| %>
+				<p>
+					<%= url %> <br>
+				</p>
+			<% end %>
+			
+	<% end %>
 </body>
 </html>
