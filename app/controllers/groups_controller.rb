@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
     before_action :authenticate_user!
 
-    def index
+    def list
         if (User.order(:id).last.welcomed != true)
           UserMailer.welcome_email(User.order(:id).last).deliver_now
           # User.order(:id).last.welcomed = true

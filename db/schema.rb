@@ -71,6 +71,11 @@ ActiveRecord::Schema.define(version: 20171008122720) do
     t.string "author"
     t.text "description"
     t.integer "author_id"
+<<<<<<< HEAD
+=======
+    t.float "scores"
+    t.float "score"
+>>>>>>> origin/master
   end
 
 end

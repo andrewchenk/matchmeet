@@ -20,8 +20,9 @@ class UsersController < ApplicationController
         else
             @user.image_urls.push(params[:url])
         end
-        result = `python #{Rails.root}/lib/computer_vision.py #{params[:url]}`
+        result = `python ./lib/computer_vision.py #{params[:url]}`
         @user.image_urls.push(result)
+        @user.scores = JSON.parse(result)
         @user.save
         redirect_to user_path
     end
