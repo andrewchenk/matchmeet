@@ -69,11 +69,7 @@ class GroupsController < ApplicationController
     end
 
     def test
-        g = Group.new
-        g.name = 'Tennis Robin Match'
-        g.description = 'Come together and have a fun around of robin match of tennis games. It will be fun!'
-        g.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0].join(',')
-        g.save!
+
 
         g1 = Group.new
         g1.name = 'Tea with Strangers'
@@ -87,6 +83,11 @@ class GroupsController < ApplicationController
         g2.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].join(',')
         g2.save!
 
+        g = Group.new
+        g.name = 'Tennis Robin Match'
+        g.description = 'Come together and have a fun around of robin match of tennis games. It will be fun!'
+        g.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0].join(',')
+        g.save!
         @group = Group.all
     end
 

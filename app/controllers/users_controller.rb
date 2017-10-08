@@ -45,12 +45,42 @@ class UsersController < ApplicationController
 	end
 
     def test
+        puts 'hi'
         # create 5 users
         u = User.new
-        u.user_name = 'aasddandrewa'
-        u.email = 'aandsdaadrew@berkeley.edu'
-        u.password = 'bdaaaaaaaaa'
-        u.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0].join(",")
-        u.save
+        u.user_name = 'Andrew Sleepy'
+        u.email = 'a@berkeley.edu'
+        u.password = 'aaaaaa'
+        u.scoresstr = [0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,20,0,0,0,0,0].join(",")
+        u.save!
+
+        u1 = User.new
+        u1.user_name = 'Jonat OP'
+        u1.email = 'b@berkeley.edu'
+        u1.password = 'bbbbbb'
+        u1.scoresstr = [0,6,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,50,0,0,0,0,0].join(",")
+        u1.save!
+
+        u2 = User.new
+        u2.user_name = 'Andrew 2'
+        u2.email = 'c@berkeley.edu'
+        u2.password = 'cccccc'
+        u2.scoresstr = [30,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0].join(",")
+        u2.save!
+
+        u3 = User.new
+        u3.user_name = 'Gary Aaa'
+        u3.email = 'd@berkeley.edu'
+        u3.password = 'dddddd'
+        u3.scoresstr = [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0].join(",")
+        u3.save!
+
+        u4 = User.new
+        u4.user_name = 'mongo db'
+        u4.email = 'e@berkeley.edu'
+        u4.password = 'eeeeee'
+        u4.scoresstr = [0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0].join(",")
+        u4.save!
+
     end
 end
