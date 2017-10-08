@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
 
+
     def show
         if current_user
             @user = User.find(params[:id])
@@ -11,6 +12,9 @@ class UsersController < ApplicationController
 
     def add_url
         @user = current_user
+        if @user.scores.nil?
+            @user.scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        end
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
         else
