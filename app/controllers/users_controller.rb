@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         end
 
         result = `python #{Rails.root}/lib/computer_vision.py #{params[:url]}`
-        @user.image_urls.push(result)
+        # @user.image_urls.push(result)
         str = result[1..-2]
         add = str.split(',').map(&:to_i)
 

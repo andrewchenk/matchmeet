@@ -31,7 +31,7 @@
 			Your Photo URLS:
 		</h3>
 			<% @user.image_urls.each do |url| %>
-					<p> <%= url %> <br>
+					<p> <%= image_tag(url) %> <br>
 			<% end %>
 			<p><b> [<%= @user.scoresstr %>] </b></p>
 
