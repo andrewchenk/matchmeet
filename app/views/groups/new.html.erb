@@ -1,19 +1,25 @@
 <div class= "container">
 <div class="form-wrapper">
   <%= simple_form_for @group, html: { class: 'form-horizontal', multipart: true } do |f| %>
-    <div class="form-group text-center">
-      <%= f.input :name %>
+  <h2>New group</h2>
+  <form class="form-signin">
+
+    <div class="form-group">
+      <%= f.label :name %> </br>
+      <%= f.text_field :name, :class => 'form-control' %>
     </div>
-    <div class="form-group text-center">
-      <%= f.input :category, collection: ["Recreational", "Education", "Parenting", "Counseling", "Lifestyle", "Other"] %>
-    </div>
-    <div class="form-group text-center">
+    <div class="field form-group">
       <%= f.label :description %> </br>
-      <%= f.text_area :description, :cols => "50", :rows => "10" %>
+      <%= f.text_field :description, :class => 'form-control' %>
     </div>
-    <div class="form-group text-center">
-      <%= f.button :submit, class: 'btn-success' %>
+    <div class="field form-group">
+      <%= f.label :category %> </br>
+      <%= f.select :category, collection: ["Recreational", "Education", "Parenting", "Counseling", "Lifestyle", "Other"], :class => 'form-control'%>
     </div>
-  <% end %>
+    <div class="field form-group">
+      <%= f.submit :submit, class: 'btn-success', :class => 'btn btn-lg btn-primary btn-block btn-signin' %>
+    </div>
+  </form>
+<% end %>
 </div>
 </div>
