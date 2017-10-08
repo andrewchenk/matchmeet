@@ -1,14 +1,13 @@
+<head>
     <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
-<style>
-html, body {
-    z-index: -10;
-}
-.navbar {
-    opacity: 0.5;
-}
-</style>
-<div id="front_page_map"></div>
+  </head>
+
+  <body>
+
+
+    <div id="wrld-map"></div>
+
 <script>
 const berkeleyLat = 37.8719;
 const berkeleyLong = -122.2585;
@@ -27,12 +26,10 @@ function createMap(pos) {
   }
 
   console.log(initLat);
-  map = L.Wrld.map("front_page_map", "230f0e3aff3e146b4a87f3ebf4fcb306", {
+  map = L.Wrld.map("wrld-map", "230f0e3aff3e146b4a87f3ebf4fcb306", {
       center: [initLat, initLong],
       zoom: 16
-  })
-  .themes.setTime(L.Wrld.themes.time.Dawn);
-  // var times = [L.Wrld.themes.time.Dawn, L.Wrld.themes.time.Day, L.Wrld.themes.time.Dusk];
+  });
   var latlng = L.latLng(berkeleyLat, berkeleyLong);
   map.precache(latlng, 50);
 
@@ -64,34 +61,16 @@ function createMap(pos) {
 }
 
 var main = function() {
-  // if (navigator.geolocation) {
-  //     console.log("ask geolocation permis");
-  //     navigator.geolocation.getCurrentPosition(createMap, createMap);
-  // } else {
-  //     createMap(null);
-  // }
-  createMap(null);
+  if (navigator.geolocation) {
+      console.log("ask geolocation permis");
+      navigator.geolocation.getCurrentPosition(createMap, createMap);
+  } else {
+      createMap(null);
+  }
 };
 
 
 main();
 </script>
 
-<div class= "container">
-<h1>Groups Near You</h1>
-
-<div class="posts-wrapper row">
-  <% @groups.each do |group| %>
-    <div class="post">
-      <div class="post-head">
-        <div class="name">
-          <%= link_to group.name, group_path(group) %>
-        </div>
-      </div>
-      <p class="caption">
-        <%= group.category %>
-      </p>
-    </div>
-  <% end %>
-</div>
-</div>
+  </body>

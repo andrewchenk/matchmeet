@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+
 </head>
 <body>
-	<h1>
-		User Profile
-	</h1>
+	<div class="container">
+		<div class="form-wrapper">
 	<h2>
 		<%= @user.user_name %>
 	</h2>
-	<p>
-		<i><%= @user.email %></i>
-	</p>
-	<h3>
+	<h5>
+		<i class="icon-envelope"><%= @user.email %></i>
+	</h5>
+	<strong>
 		Groups:
-	</h3>
+	</strong>
 		<% @user.all_following.each do |following| %>
 			<% if following %>
 				<div><%= link_to following.name, group_path(following.id) %></div>
 			<% end %>
 		<% end %>
-	<h3>
-		User Bio:
-	</h3>
-	<p>
-		<%= @user.bio %>
-	</p>
 
 	<% if current_user.id == @user.id %>
-			<h4>
 			<%= form_tag({controller: "users", action: "add_url"}, method: "post") do %>
     		<%= label_tag(:url, "Add URL:") %>
     		<%= text_field_tag(:url) %>
     		<%= submit_tag("Add URL") %>
 	<% end %>
-			</h4>
 		<h3>
 			Your Photo URLS:
 		</h3>
 			<% @user.image_urls.each do |url| %>
-					<%= url %> <br>
+					<img = <%= url %>></img> <br>
 			<% end %>
-			
+
 	<% end %>
+
+</div>
+</div>
 </body>
 </html>

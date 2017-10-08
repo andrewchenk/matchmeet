@@ -3,26 +3,13 @@ html, body {
     width: 100%;
     position: relative;
 }
-#front_page_map {
+#wrld-map {
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: -5;
-}
-#map {
-    height: 500px;
-    width: 800px;
-}
-#login_form {
-    margin-right: 20%;
-}
-#login_card {
-    margin: 0px;
-}
-#login_text {
-    
 }
 
 body {

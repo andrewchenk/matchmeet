@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations' }  
+  devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_scope :user do
   	get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   root 'groups#index'
-  get '/map' => 'groups#map'
+  get '/list' => 'groups#list'
   post '/users/:id' => 'users#add_url'
   resources :groups do
     resources :comments
