@@ -35,8 +35,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Event confirmation")
   end
 
-  def join_email(user)
+  def join_email(user, group)
     @user = user
+    @group = group
     sparkpost_payload(
       options: {
         open_tracking: true
