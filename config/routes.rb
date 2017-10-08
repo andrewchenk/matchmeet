@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'groups#index'
   get '/map' => 'groups#map'
+  post '/users/:id' => 'users#add_url'
   resources :groups do
     resources :comments
   end

@@ -9,6 +9,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def add_url
+        @user = User.find(params[:id])        
+        if @user.image_urls.nil?
+            @user.image_urls = [params[:url]]
+        else
+            @user.image_urls.push(params[:url])    
+        end
+        @user.save
+        redirect_to user_path
+    end
+
     def follow
 			current_user.follow(Group.find(params[:id]))
 			redirect_to group_path(params[:id])

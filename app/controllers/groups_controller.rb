@@ -1,14 +1,6 @@
 class GroupsController < ApplicationController
     before_action :authenticate_user!
 
-    require 'microsoft_computer_vision'
-    require 'json'
-    subscription_key = ENV['35b0725209e04bb187f8b512e935cc3d']
-    @client = MicrosoftComputerVision::Client.new(subscription_key)
-    IMAGE_URL = 'https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg'
-   # IMAGE_FILE_PATH = File.expand_path('../test.jpg', __FILE__)
-
-
     def index
         UserMailer.welcome_email(User.order(:id).last).deliver_now
         @groups = Group.all
@@ -46,6 +38,7 @@ class GroupsController < ApplicationController
         @userlon = request.location.longitude
     end
 
+<<<<<<< HEAD
     def describe
         puts 'Describe'
 
@@ -61,6 +54,8 @@ class GroupsController < ApplicationController
         #res = @client.describe(IMAGE_FILE_PATH, options)
         #puts res.body
       end
+=======
+>>>>>>> fa8551302744f7a9858d8d41a61cd14e2978caf0
 
     private def group_params
         params.require(:group).permit(:name,:category,:description)
