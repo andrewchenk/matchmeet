@@ -30,8 +30,8 @@
 
 	<% if current_user.id == @user.id%>
 			<h4>
-			<%= form_for :Image_Urls do |f| %>
-				     <%= f.text_field :url %>
+			<%= form_for @Users, url: {action: "add_url"} do |f| %>
+				     <%= f.text_field :add_url %>
 					 <%= f.submit %>
 			<% end %>
 			</h4>
@@ -39,7 +39,7 @@
 			Your Photo URLS:
 		</h3>
 			
-			<% @user.Image_Urls do |url| %>
+			<% @user.image_urls do |url| %>
 				<p>
 					<%= url %> <br>
 				</p>
