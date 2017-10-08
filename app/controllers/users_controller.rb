@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def add_url
         @user = current_user
         if @user.scores.nil?
-            @user.scores = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            @user.scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         end
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
         end
         result = `python #{Rails.root}/lib/computer_vision.py #{params[:url]}`
         @user.image_urls.push(result)
+        @user.scores = JSON.parse(result)
         @user.save
         redirect_to user_path
     end
