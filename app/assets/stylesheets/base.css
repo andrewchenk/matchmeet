@@ -16,11 +16,14 @@ html, body {
     width: 800px;
 }
 #login_form {
-    margin: 0, 0, 0, 0;
-    margin-left: 50%;
-    margin-right: 0%;
+    margin-right: 20%;
 }
-
+#login_card {
+    margin: 0px;
+}
+#login_text {
+    
+}
 
 body {
   background-color: #ADD8E6;

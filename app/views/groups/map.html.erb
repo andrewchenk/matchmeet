@@ -61,12 +61,12 @@ function createMap(pos) {
 }
 
 var main = function() {
-  // if (navigator.geolocation) {
-  //     console.log("ask geolocation permis");
-  //     navigator.geolocation.getCurrentPosition(createMap, createMap);
-  // } else {
-  //     createMap(null);
-  // }
+  if (navigator.geolocation) {
+      console.log("ask geolocation permis");
+      navigator.geolocation.getCurrentPosition(createMap, createMap);
+  } else {
+      createMap(null);
+  }
   createMap(null);
 };
 
