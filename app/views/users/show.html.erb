@@ -28,21 +28,19 @@
 		<%= @user.bio %>
 	</p>
 
-	<% if current_user.id == @user.id%>
+	<% if current_user.id == @user.id %>
 			<h4>
-			<%= form_for @Users, url: {action: "add_url"} do |f| %>
-				     <%= f.text_field :add_url %>
-					 <%= f.submit %>
-			<% end %>
+			<%= form_tag({controller: "users", action: "add_url"}, method: "post") do %>
+    		<%= label_tag(:url, "Add URL:") %>
+    		<%= text_field_tag(:url) %>
+    		<%= submit_tag("Add URL") %>
+	<% end %>
 			</h4>
 		<h3>
 			Your Photo URLS:
 		</h3>
-			
-			<% @user.image_urls do |url| %>
-				<p>
+			<% @user.image_urls.each do |url| %>
 					<%= url %> <br>
-				</p>
 			<% end %>
 			
 	<% end %>
