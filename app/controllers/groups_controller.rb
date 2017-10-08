@@ -9,6 +9,25 @@ class GroupsController < ApplicationController
         @groups = Group.all
         @user_lat = request.location.latitude
         @user_lon = request.location.longitude
+
+        # compute best suggestion
+        # @users = User.all
+        # max = -1
+        # @maxG = nil
+        # for g in @groups
+        #     dot_sum = 0
+        #     for u in @users
+        #         g_score = g.scoresstr.split(',').map(&:to_i)
+        #         u_score = u.scoresstr.split(',').map(&:to_i)
+        #         dot_product = g_score.map.with_index{ |x, i| g_score[i]*u_score[i]}
+        #         dot_sum = dot_sum + dot_product.sum
+        #     end
+        #
+        #     if dot_sum > max
+        #         max = dot_sum
+        #         @maxG = g
+        #     end
+        # end
     end
 
     def new
@@ -43,10 +62,22 @@ class GroupsController < ApplicationController
 
     def test
         g = Group.new
-        g.name = ''
-        g.description = ''
-        g.scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        g.name = 'Tennis Robin Match'
+        g.description = 'Come together and have a fun around of robin match of tennis games. It will be fun!'
+        g.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0].join(',')
         g.save!
+
+        g1 = Group.new
+        g1.name = 'Tea with Strangers'
+        g1.description = 'What is more interesting than stories? Stories from strangers! Come have a cup of tea with us.'
+        g1.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0].join(',')
+        g1.save!
+
+        g2 = Group.new
+        g2.name = 'Soccer Pick up game'
+        g2.description = 'We are a group of super chill soccer players. Come join us!'
+        g2.scoresstr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].join(',')
+        g2.save!
 
         @group = Group.all
     end

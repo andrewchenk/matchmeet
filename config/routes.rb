@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   root 'groups#index'
-  get '/map' => 'groups#map'
+  get '/list' => 'groups#list'
   get 'groupstest' => 'groups#test'
   get 'userstest' => 'users#test'
   post '/users/:id' => 'users#add_url'
