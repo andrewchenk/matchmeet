@@ -44,6 +44,8 @@ gem 'jquery-rails', '~> 4.3.1'
 gem 'microsoft_computer_vision'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
+gem 'sparkpost_rails5', require: "sparkpost_rails"
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
