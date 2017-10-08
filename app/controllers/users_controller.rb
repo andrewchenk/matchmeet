@@ -10,12 +10,14 @@ class UsersController < ApplicationController
     end
 
     def add_url
-        @user = current_user      
+        @user = current_user
         if @user.image_urls.nil?
             @user.image_urls = [params[:url]]
         else
-            @user.image_urls.push(params[:url])    
+            @user.image_urls.push(params[:url])
         end
+        result = `python #{Rails.root}/lib/computer_vision.py #{params[:url]}`
+        @user.image_urls.push(result)
         @user.save
         redirect_to user_path
     end
