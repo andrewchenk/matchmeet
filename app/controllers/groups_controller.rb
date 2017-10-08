@@ -38,7 +38,6 @@ class GroupsController < ApplicationController
         @userlon = request.location.longitude
     end
 
-<<<<<<< HEAD
     def describe
         puts 'Describe'
 
@@ -54,8 +53,6 @@ class GroupsController < ApplicationController
         #res = @client.describe(IMAGE_FILE_PATH, options)
         #puts res.body
       end
-=======
->>>>>>> fa8551302744f7a9858d8d41a61cd14e2978caf0
 
     private def group_params
         params.require(:group).permit(:name,:category,:description)

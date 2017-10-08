@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20171008044259) do
     t.float "latitude"
     t.float "longitude"
     t.string "author"
-    t.integer "author_id"
     t.text "description"
+    t.integer "author_id"
   end
 
 end
