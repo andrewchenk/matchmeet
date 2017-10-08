@@ -8,8 +8,8 @@
 
     <div class="container-fluid" id="map"></div>
 
-    <script>
-    const berkeleyLat = 37.8719;
+<script>
+const berkeleyLat = 37.8719;
 const berkeleyLong = -122.2585;
 
 function createMap(pos) {
@@ -61,17 +61,17 @@ function createMap(pos) {
 }
 
 var main = function() {
-  // if (navigator.geolocation) {
-  //     console.log("ask geolocation permis");
-  //     navigator.geolocation.getCurrentPosition(createMap, createMap);
-  // } else {
-  //     createMap(null);
-  // }
+  if (navigator.geolocation) {
+      console.log("ask geolocation permis");
+      navigator.geolocation.getCurrentPosition(createMap, createMap);
+  } else {
+      createMap(null);
+  }
   createMap(null);
 };
 
 
 main();
-    </script>
+</script>
 
   </body>
