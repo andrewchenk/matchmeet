@@ -1,24 +1,3 @@
-# README
+# MatchMeet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A web app that will help you find people. Made for CalHacks 2017. Utilizes Ruby on Rails with the WRLD and Microsoft Azure Computer Vision APIs. 
